@@ -28,7 +28,7 @@ export default function ParkingLicenseApp() {
         onClick={() => setCurrentInterface('registration')}
         className="bg-blue-500 text-black px-6 py-3 rounded-lg text-xl hover:bg-blue-600"
       >
-        Register Parking
+        Registrar Estacionamento
       </button>
     </div>
   );
@@ -48,10 +48,10 @@ export default function ParkingLicenseApp() {
 
   const renderRegistrationInterface = () => (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md text-black">
-      <h2 className="text-2xl mb-4">Parking Registration</h2>
+      <h2 className="text-2xl mb-4">Registro de Estacionamento</h2>
       
       <div className="mb-4">
-        <label className="block mb-2">License Plate</label>
+        <label className="block mb-2">Placa do Veículo</label>
         <input 
           type="text" 
           value={licensePlate}
@@ -63,7 +63,7 @@ export default function ParkingLicenseApp() {
       </div>
 
       <div className="mb-4">
-        <label className="block mb-2">Parking Duration</label>
+        <label className="block mb-2">Duração do Estacionamento</label>
         <select 
           value={duration}
           onChange={(e) => setDuration(e.target.value)}
@@ -79,20 +79,20 @@ export default function ParkingLicenseApp() {
       </div>
 
       <div className="mb-4">
-        <label className="block mb-2">Payment Method</label>
+        <label className="block mb-2">Método de Pagamento</label>
         <select 
           value={paymentMethod}
           onChange={(e) => setPaymentMethod(e.target.value)}
           className="w-full px-3 py-2 border rounded text-black"
         >
-          <option value="" className="text-black">Select Payment Method</option>
-          <option value="credit" className="text-black">Credit/Debit Card</option>
+          <option value="" className="text-black">Selecione o Método de Pagamento</option>
+          <option value="credit" className="text-black">Cartão de Crédito/Débito</option>
           <option value="pix" className="text-black">PIX</option>
         </select>
       </div>
 
       <div className="mb-4 font-bold text-black">
-        Total Cost: R${duration ? parkingRates[duration] : 0}
+        Custo Total: R${duration ? parkingRates[duration] : 0}
       </div>
 
       <button 
@@ -100,19 +100,19 @@ export default function ParkingLicenseApp() {
         disabled={!licensePlate || !duration || !paymentMethod}
         className="w-full bg-blue-500 text-black py-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
       >
-        Confirm Registration
+        Confirmar Registro
       </button>
     </div>
   );
 
   const renderPaymentInterface = () => (
     <div className="flex flex-col items-center justify-center h-screen text-black">
-      <p className="text-xl mb-4">Proceed to complete your payment</p>
+      <p className="text-xl mb-4">Simulando um pagamento</p>
       <button 
         onClick={() => setCurrentInterface('confirmation')}
         className="bg-green-500 text-black px-6 py-3 rounded-lg hover:bg-green-600"
       >
-        Proceed to Payment
+        Concluído
       </button>
     </div>
   );
@@ -131,25 +131,25 @@ export default function ParkingLicenseApp() {
   
     return (
       <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md text-black">
-        <h2 className="text-2xl mb-4">Parking Registration Confirmation</h2>
+        <h2 className="text-2xl mb-4">Registro de Estacionamento</h2>
   
         <div className="grid grid-cols-2 gap-4">
-          <div className="font-semibold">License Plate:</div>
+          <div className="font-semibold">Placa do Veículo:</div>
           <div>{transactionDetails.licensePlate}</div>
   
-          <div className="font-semibold">Registration Time:</div>
+          <div className="font-semibold">Horário de Registro:</div>
           <div>{format(now, 'yyyy-MM-dd HH:mm:ss')}</div>
   
-          <div className="font-semibold">Expiration Time:</div>
+          <div className="font-semibold">Horário de Expiração:</div>
           <div>{format(expirationTime, 'yyyy-MM-dd HH:mm:ss')}</div>
   
-          <div className="font-semibold">Duration:</div>
+          <div className="font-semibold">Duração:</div>
           <div>{transactionDetails.duration}</div>
   
-          <div className="font-semibold">Payment Method:</div>
+          <div className="font-semibold">Método de Pagamento:</div>
           <div>{transactionDetails.paymentMethod}</div>
   
-          <div className="font-semibold">Total Fee:</div>
+          <div className="font-semibold">Taxa Total:</div>
           <div>R${transactionDetails.totalCost}</div>
         </div>
   
@@ -157,14 +157,14 @@ export default function ParkingLicenseApp() {
           onClick={handlePrintReceipt}
           className="w-full mt-4 bg-blue-500 text-black py-2 rounded hover:bg-blue-600"
         >
-          Print Receipt
+          Imprimir Recibo
         </button>
   
         <button
           onClick={() => setCurrentInterface('main')}
           className="w-full mt-4 bg-gray-500 text-black py-2 rounded hover:bg-gray-600"
         >
-          Back to Home
+          Voltar para Início
         </button>
       </div>
     );
